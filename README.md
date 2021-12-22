@@ -2,6 +2,45 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Setup the blockchain
+### Create a .env
+At the root of your project create a file named: `.env.local`.
+Add the following content:
+```
+PRIVATE_KEY=YOUR_PRIVATE_KEY_HERE
+WALLET_ADDRESS=YOUR_WALLET_ADDRESS
+ALCHEMY_API_URL=YOUR_ALCHEMY_API_URL
+```
+
+### Initialize the Thirdweb SDK
+Run the following command:
+```
+node scripts/1-initialize-sdk.js
+```
+It will output the address of your app.
+
+### Create an ERC-1155 collection
+Run the following command:
+```
+node scripts/2-deploy-drop.js
+```
+Have a look at the script, you will need to put your address generated on the previous step to make it work.
+
+### Setup NFT data
+Run the following command:
+```
+node scripts/3-config-nft.js
+```
+Have a look at the script, you will need to put your address generated on the previous step to make it work.
+
+### Setup claim condition
+Run the following command:
+```
+node scripts/4-set-claim-condition.js
+```
+Have a look at the script, you will need to put your address generated on the second step to make it work.
+
+
 ## Available Scripts
 
 In the project directory, you can run:
