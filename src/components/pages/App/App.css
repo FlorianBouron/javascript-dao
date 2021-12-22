@@ -1,0 +1,12 @@
+.landing {
+  flex-direction: column;
+  width: 960px;
+  max-width: calc(100% - 1rem);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin: auto;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+}
