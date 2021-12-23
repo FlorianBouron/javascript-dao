@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ThirdwebWeb3Provider } from '@3rdweb/hooks';
-import App from './components/pages/App/App';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 

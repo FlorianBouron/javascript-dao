@@ -1,4 +1,4 @@
-.landing {
+.container {
   flex-direction: column;
   width: 960px;
   max-width: calc(100% - 1rem);
