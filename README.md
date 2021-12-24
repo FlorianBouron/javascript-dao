@@ -40,7 +40,26 @@ node scripts/4-set-claim-condition.js
 ```
 Have a look at the script, you will need to put your address generated on the second step to make it work.
 
+### Deploy your ERC-20 token
+Run the following command:
+```
+node scripts/5-deploy-token.js
+```
+Have a look at the script, you will need to put your address generated on the first step to make it work.
 
+### Print Money
+Run the following command:
+```
+node scripts/6-print-money.js
+```
+Have a look at the script, you will need to put your address generated on the previous step to make it work.
+
+### Airdrop
+Run the following command:
+```
+node scripts/7-airdrop-token.js
+```
+Have a look at the script, you will need to put your addresses generated for the ERC-1155 and ERC-20 tokens
 ## Available Scripts
 
 In the project directory, you can run:
