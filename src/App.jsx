@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { ThirdwebSDK } from "@3rdweb/sdk";
 import { useWeb3 } from "@3rdweb/hooks";
 import { Member } from "./components/pages/Member/Member";
@@ -11,6 +11,10 @@ const bundleDropModule = sdk.getBundleDropModule(
   "0xcf0862641f963890E7e0d63A6AC2B9Af2B67d3C7",
 );
 
+const tokenModule = sdk.getTokenModule(
+  "0xBF469E4fEa4E332017A0E786F840E48EBD264Ca0"
+);
+
 const App = () => {
   const { connectWallet, address, error, provider } = useWeb3();
 
@@ -20,6 +24,8 @@ const App = () => {
 
   const [hasClaimedNFT, setHasClaimedNFT] = useState(false);
   const [isClaiming, setIsClaiming] = useState(false);
+  const [memberTokenAmounts, setMemberTokenAmounts] = useState({});
+  const [memberAddresses, setMemberAddresses] = useState([]);
 
   useEffect(() => {
     sdk.setProviderOrSigner(signer);
@@ -47,6 +53,34 @@ const App = () => {
       });
   }, [address]);
 
+  useEffect(() => {
+    if (!hasClaimedNFT) {
+      return;
+    }
+    bundleDropModule
+      .getAllClaimerAddresses("0")
+      .then((addresses) => {
+        setMemberAddresses(addresses);
+      })
+      .catch((err) => {
+        console.error("failed to get member list", err);
+      });
+  }, [hasClaimedNFT]);
+  
+  useEffect(() => {
+    if (!hasClaimedNFT) {
+      return;
+    }
+    tokenModule
+      .getAllHolderBalances()
+      .then((amounts) => {
+        setMemberTokenAmounts(amounts);
+      })
+      .catch((err) => {
+        console.error("failed to get token amounts", err);
+      });
+  }, [hasClaimedNFT]);
+
   if (!address) {
     return (
       <ConnectWallet connectWallet={connectWallet} />
@@ -55,7 +89,7 @@ const App = () => {
 
   if (hasClaimedNFT) {
     return (
-      <Member />
+      <Member memberAddresses={memberAddresses} memberTokenAmounts={memberTokenAmounts} />
     );
   };
 
