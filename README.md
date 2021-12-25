@@ -60,6 +60,28 @@ Run the following command:
 node scripts/7-airdrop-token.js
 ```
 Have a look at the script, you will need to put your addresses generated for the ERC-1155 and ERC-20 tokens
+
+### Deploy a governance contract (vote)
+Run the following command:
+```
+node scripts/8-deploy-vote.js
+```
+Have a look at the script, you will need to put your address generated on the first step to make it work.
+
+### Setup a treasury to our governance contract
+Run the following command:
+```
+node scripts/9-setup-vote.js
+```
+Have a look at the script, you will need to put your addresses generated for the governance contract and ERC-20 tokens
+
+### Create voting proposals
+Run the following command:
+```
+node scripts/10-create-vote-proposals.js
+```
+Have a look at the script, you will need to put your addresses generated for the governance contract and ERC-20 tokens
+
 ## Available Scripts
 
 In the project directory, you can run:

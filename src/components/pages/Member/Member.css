@@ -46,7 +46,7 @@
 
 .member-page form h5 {
   margin-top: 0;
-  color: #7700ee;
+  color: #989999;
 }
 
 .member-page form .card > div {
@@ -57,4 +57,12 @@
 
 .member-page form small {
   text-align: center;
+}
+
+.card {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 1rem;
+  color: #000;
+  box-shadow: 3.1px 6.2px 6.2px hsl(0deg 0% 0% / 0.4);
 }

@@ -89,7 +89,13 @@ const App = () => {
 
   if (hasClaimedNFT) {
     return (
-      <Member memberAddresses={memberAddresses} memberTokenAmounts={memberTokenAmounts} />
+      <Member
+        memberAddresses={memberAddresses}
+        memberTokenAmounts={memberTokenAmounts}
+        hasClaimedNFT={hasClaimedNFT}
+        address={address}
+        tokenModule={tokenModule}
+      />
     );
   };
 

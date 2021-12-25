@@ -2,7 +2,7 @@ import "./Container.css";
 
 export function Container({children}) {
   return (
-    <div className="landing">
+    <div className="container">
       {children}
     </div>
   )
